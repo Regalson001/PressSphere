@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="PressSphere - Global Newspaper and News Search Engine">
+
+    <title>PressSphere | Global News Intelligence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement">
+        <span class="live-dot"></span>
+        YOUR WORLD, IN CONTEXT
+        <span class="divider">/</span>
+        GLOBAL NEWS INTELLIGENCE
+    </div>
+
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <a href="#" class="brand">
+            <div class="brand-mark">P<span>•</span></div>
+
+            <div class="brand-name">
+                Press<span>Sphere</span>
+                <small>GLOBAL NEWS INTELLIGENCE</small>
+            </div>
+        </a>
+
+        <nav class="navigation">
+            <a href="#discover" class="active">Discover</a>
+            <a href="#trending">Trending</a>
+            <a href="#saved">
+                Saved <span id="savedCount">0</span>
+            </a>
+        </nav>
+
+        <div class="header-actions">
+
+            <button id="themeToggle" class="icon-button">
+                ☾
+            </button>
+
+            <button id="aboutButton" class="profile-button">
+                About PressSphere
+            </button>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero" id="discover">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    THE GLOBAL NEWSROOM
+                </div>
+
+                <h1>
+                    Stay curious.<br>
+                    <em>Stay informed.</em>
+                </h1>
+
+                <p>
+                    Explore reporting from publications around
+                    the world. Search smarter, discover different
+                    perspectives and follow the stories shaping
+                    our time.
+                </p>
+
+                <div class="hero-meta">
+                    ◎ ONE SEARCH. GLOBAL PERSPECTIVES.
+                </div>
+
+            </div>
+
+            <div class="hero-art">
+
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <div class="globe">◎</div>
+
+                <div class="floating-card card-top">
+                    <span class="live-dot"></span>
+                    GLOBAL COVERAGE <b>24/7</b>
+                </div>
+
+                <div class="floating-card card-bottom">
+                    ✳ STORIES WITHOUT BORDERS
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- SEARCH SECTION -->
+        <section class="search-section">
+
+            <form id="searchForm" class="search-box">
+
+                <span class="search-symbol">⌕</span>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search a topic, person, event or keyword..."
+                    autocomplete="off"
+                    required
+                >
+
+                <button type="submit" class="search-submit">
+                    Search stories ↗
+                </button>
+
+            </form>
+
+            <div class="quick-searches">
+
+                <span>EXPLORE:</span>
+
+                <button data-query="Artificial intelligence">
+                    Artificial Intelligence
+                </button>
+
+                <button data-query="Kenya">
+                    Kenya
+                </button>
+
+                <button data-query="Climate change">
+                    Climate
+                </button>
+
+                <button data-query="Business markets">
+                    Business
+                </button>
+
+                <button data-query="Technology">
+                    Technology
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- TRENDING SECTION -->
+        <section class="trending-strip" id="trending">
+
+            <div class="trending-label">
+                <span class="live-dot"></span>
+                TOPIC SHORTCUTS
+            </div>
+
+            <div class="topic-list">
+
+                <button data-query="World news">World</button>
+                <button data-query="Politics">Politics</button>
+                <button data-query="Technology">Technology</button>
+                <button data-query="Science">Science</button>
+                <button data-query="Health">Health</button>
+                <button data-query="Sports">Sports</button>
+                <button data-query="Africa">Africa</button>
+
+            </div>
+
+        </section>
+
+        <!-- NEWS RESULTS -->
+        <section class="results-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        <span class="eyebrow-line"></span>
+                        THE LATEST
+                    </div>
+
+                    <h2 id="resultsHeading">
+                        Stories worth your attention
+                    </h2>
+
+                </div>
+
+                <div id="resultsStatus">
+                    Ready when you are
+                </div>
+
+            </div>
+
+            <!-- FILTERS -->
+            <div class="filter-bar">
+
+                <div class="filter-title">
+                    REFINE RESULTS
+                </div>
+
+                <label>
+                    Language
+
+                    <select id="languageFilter">
+                        <option value="en">English</option>
+                        <option value="ar">Arabic</option>
+                        <option value="de">German</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="it">Italian</option>
+                        <option value="pt">Portuguese</option>
+                        <option value="ru">Russian</option>
+                        <option value="zh">Chinese</option>
+                    </select>
+
+                </label>
+
+                <label>
+                    Published after
+
+                    <input type="date" id="fromDate">
+                </label>
+
+                <label>
+                    Sort by
+
+                    <select id="sortFilter">
+                        <option value="publishedAt">Newest first</option>
+                        <option value="relevancy">Most relevant</option>
+                        <option value="popularity">Popular</option>
+                    </select>
+
+                </label>
+
+                <button id="clearFilters" class="clear-button">
+                    Reset filters ↺
+                </button>
+
+            </div>
+
+            <!-- LOADING -->
+            <div id="loadingState" class="loading-state" hidden>
+                <span class="loader"></span>
+                Searching the global newsroom...
+            </div>
+
+            <!-- ERROR -->
+            <div id="errorState" class="error-state" hidden></div>
+
+            <!-- EMPTY RESULTS -->
+            <div id="emptyState" class="empty-state" hidden>
+
+                <div class="empty-icon">⌕</div>
+
+                <h3>No stories found</h3>
+
+                <p>
+                    Try another keyword or adjust your filters.
+                </p>
+
+            </div>
+
+            <!-- ARTICLE GRID -->
+            <div id="articleGrid" class="article-grid"></div>
+
+            <!-- PAGINATION -->
+            <div class="pagination">
+
+                <span id="resultCount">
+                    Search to discover articles
+                </span>
+
+                <div>
+
+                    <button id="prevPage" class="page-button" disabled>
+                        ← Previous
+                    </button>
+
+                    <span id="pageNumber">Page 1</span>
+
+                    <button id="nextPage" class="page-button" disabled>
+                        Next →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- SAVED ARTICLES -->
+        <section class="saved-section" id="saved">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        <span class="eyebrow-line"></span>
+                        YOUR READING LIST
+                    </div>
+
+                    <h2>Saved for later</h2>
+
+                </div>
+
+                <button id="clearSaved" class="clear-button">
+                    Clear saved ↗
+                </button>
+
+            </div>
+
+            <div id="savedGrid" class="saved-grid">
+
+                <p class="saved-empty">
+                    Your bookmarked stories will appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- BOTTOM CTA -->
+        <section class="newsletter">
+
+            <div>
+
+                <div class="eyebrow">
+                    A WIDER VIEW
+                </div>
+
+                <h2>Read beyond the headline.</h2>
+
+                <p>
+                    Discover global reporting in one focused
+                    reading experience.
+                </p>
+
+            </div>
+
+            <a href="#discover" class="newsletter-link">
+                Explore the newsroom ↗
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+        <div class="footer-brand">
+            PressSphere
+        </div>
+
+        <p>Discover more. Understand better.</p>
+
+        <span>
+            © <span id="year"></span> PressSphere
+        </span>
+
+    </footer>
+
+    <!-- ABOUT DIALOG -->
+    <dialog id="aboutDialog" class="about-dialog">
+
+        <button id="closeDialog" class="dialog-close">
+            ×
+        </button>
+
+        <div class="eyebrow">
+            ABOUT THE PLATFORM
+        </div>
+
+        <h2>News discovery, with a wider lens.</h2>
+
+        <p>
+            PressSphere is a global news discovery platform
+            designed to help readers search, explore and save
+            reporting from publishers around the world.
+        </p>
+
+        <p>
+            Articles remain the property of their original
+            publishers. Visit the publisher's website to read
+            the complete report.
+        </p>
+
+    </dialog>
+
+    <!-- ARTICLE TEMPLATE -->
+    <template id="articleTemplate">
+
+        <article class="article-card">
+
+            <div class="article-image-wrap">
+
+                <img class="article-image" alt="" loading="lazy">
+
+                <span class="image-placeholder">
+                    PRESSSPHERE
+                </span>
+
+                <button class="bookmark-button" aria-label="Save article">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="article-content">
+
+                <div class="article-kicker">
+
+                    <span class="source-name"></span>
+
+                    <span class="article-date"></span>
+
+                </div>
+
+                <h3 class="article-title"></h3>
+
+                <p class="article-description"></p>
+
+                <div class="article-footer">
+
+                    <span class="read-label">ARTICLE</span>
+
+                    <a
+                        class="read-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Read at source ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </template>
+
+    <script src="app.js" defer></script>
+
+</body>
+</html>
