@@ -1,0 +1,15 @@
+
+{
+  "name": "presssphere",
+  "version": "1.0.0",
+  "description": "Premium global newspaper search and news intelligence platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2"
+  }
+}
